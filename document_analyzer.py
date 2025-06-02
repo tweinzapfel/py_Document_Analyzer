@@ -131,7 +131,7 @@ def call_ai_api(text, summary_length="medium", focus_area="general"):
             messages=[
                 { 
                     "role": "user", 
-                    "content": prompt"
+                    "content": prompt
                 }
             ]
         )
