@@ -135,7 +135,7 @@ def call_ai_api(text, summary_length="medium", focus_area="general"):
                 }
             ]
         )
-        st.markdown("### Recipe Based on Your Ingredients")
+        st.markdown("### Document Summary")
         st.write(response.choices[0].message.content)
     except Exception as e:
         st.error(f"An error occurred: {e}")
@@ -251,11 +251,7 @@ def main():
     2. **Choose your preferences** for summary length and focus area
     3. **Click 'Generate Summary'** to get your AI-powered summary
     4. **Download the summary** as a text file if needed
-    
-    ### 🔧 API Configuration:
-    This app uses OpenAI's API through Streamlit secrets. Make sure to:
-    - Add your OpenAI API key to `.streamlit/secrets.toml` as `api_key`
-    - Install required packages: `pip install streamlit openai PyPDF2 python-docx`
+
     """)
 
 
