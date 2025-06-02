@@ -126,18 +126,19 @@ def call_ai_api(text, summary_length="medium", focus_area="general"):
     }
     
     try:
-        response = requests.post(API_URL, headers=headers, json=payload)
-        
-        if response.status_code == 200:
-            result = response.json()
-            return result["choices"][0]["message"]["content"].strip()
-        else:
-            return f"API Error: {response.status_code} - {response.text}"
-            
-    except requests.exceptions.RequestException as e:
-        return f"Request Error: {str(e)}"
+        response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+            messages=[
+                { 
+                    "role": "user", 
+                    "content": prompt"
+                }
+            ]
+        )
+        st.markdown("### Recipe Based on Your Ingredients")
+        st.write(response.choices[0].message.content)
     except Exception as e:
-        return f"Unexpected Error: {str(e)}"
+        st.error(f"An error occurred: {e}")
 
 def main():
     # Header
